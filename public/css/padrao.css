@@ -1,0 +1,9 @@
+.small{
+    width: 20px;
+}
+
+.select{
+    height: 30px;
+    border-color: #d6d6d6;
+    border-radius: 2px;
+}

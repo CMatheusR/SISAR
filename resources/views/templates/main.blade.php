@@ -59,8 +59,15 @@
             Aluno
         </a>
     @endif
+    @if($tag=="RESTRITO")
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('img\restrito.png') }}" width="30" height="30" class="d-inline-block align-bottom"
+                 alt="">
+            Restrito
+        </a>
+    @endif
     <span class="navbar-brand">SISAR - Sistema de Avaliação Remota</span>
-    <a class="navbar-brand" href="{{route('principal.index')}}">| HOME |</a>
+    <a class="navbar-brand" href="{{route('index')}}">| HOME |</a>
 </nav>
 <div>
     @yield('conteudo')

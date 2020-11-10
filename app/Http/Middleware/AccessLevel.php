@@ -17,7 +17,7 @@ class AccessLevel
      */
     public function handle($request, Closure $next)
     {
-        $nivel = 0;
+        $nivel = 3;
         $rota = $request->route()->getName();
 
         $response = $next($request);

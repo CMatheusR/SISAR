@@ -13,15 +13,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('restrito', 'CRestrito@index')->name('restrito');
-Route::resource('/', 'HomeController');
-Route::resource('aluno', 'CAluno');
-Route::resource('curso', 'CCurso');
-Route::resource('disciplina', 'CDisciplina');
-Route::resource('matricula', 'CMatricula');
-Route::resource('professor', 'CProfessor');
-Route::resource('principal', 'CPrincipal');
+Route::middleware('auth', 'AccessLevel')->group(function () {
+
+    Route::resource('/', 'HomeController');
+
+    Route::get('restrito', 'CRestrito@index')->name('restrito');
+    Route::resource('aluno', 'CAluno');
+    Route::resource('curso', 'CCurso');
+    Route::resource('disciplina', 'CDisciplina');
+    Route::resource('matricula', 'CMatricula');
+    Route::resource('professor', 'CProfessor');
+    Route::resource('principal', 'CPrincipal');
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

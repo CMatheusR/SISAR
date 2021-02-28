@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AccessLevel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('/', 'CPrincipal');
+Route::get('restrito', 'CRestrito@index')->name('restrito');
+Route::resource('/', 'HomeController');
 Route::resource('aluno', 'CAluno');
 Route::resource('curso', 'CCurso');
 Route::resource('disciplina', 'CDisciplina');
 Route::resource('matricula', 'CMatricula');
 Route::resource('professor', 'CProfessor');
 Route::resource('principal', 'CPrincipal');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

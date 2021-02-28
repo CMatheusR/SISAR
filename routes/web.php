@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware('auth', 'AccessLevel')->group(function () {
+Route::middleware(['auth', 'AccessLevel'])->group(function () {
 
     Route::resource('/', 'HomeController');
 
